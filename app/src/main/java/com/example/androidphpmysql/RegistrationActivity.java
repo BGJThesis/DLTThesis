@@ -3,7 +3,9 @@ package com.example.androidphpmysql;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -29,6 +31,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private TextView progressDialog, loginText;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        sharedPreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
 
         editTextName = (EditText) findViewById(R.id.editName);
         editTextEmail = (EditText) findViewById(R.id.editEmail);
@@ -101,10 +106,13 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Registered Successfully!!", Toast.LENGTH_LONG).show();
-                    String userUid = databaseReference.push().getKey();
+                    final String userUid = firebaseAuth.getUid();
+//                  String userUid = databaseReference.push().getKey();
                     databaseReference.child(userUid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            editor = sharedPreferences.edit();
+                            editor.putString("uid", userUid);
                             finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }

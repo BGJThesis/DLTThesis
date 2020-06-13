@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_blank_fragment"
         android:layout_gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/uid"/>
 
 </FrameLayout>

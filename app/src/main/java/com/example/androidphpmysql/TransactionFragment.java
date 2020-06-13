@@ -2,6 +2,7 @@ package com.example.androidphpmysql;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -40,6 +41,8 @@ public class TransactionFragment extends Fragment {
     private DatabaseReference transactionDatabaseReference, userDatabaseReference;
     private EditText quantityEditText, receiverEditText;
     private FirebaseUser user;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -79,6 +82,7 @@ public class TransactionFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         transactionDatabaseReference = FirebaseDatabase.getInstance().getReference("transactions");
         user = firebaseAuth.getCurrentUser();
+        sharedPreferences = this.getActivity().getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -96,6 +100,8 @@ public class TransactionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 firebaseAuth.signOut();
+                editor = sharedPreferences.edit();
+                editor.remove("uid");
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);

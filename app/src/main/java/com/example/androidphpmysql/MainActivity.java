@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() == null){
             finish();
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
         final FirebaseUser user = firebaseAuth.getCurrentUser();
     }

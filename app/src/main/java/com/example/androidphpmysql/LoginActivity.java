@@ -3,7 +3,9 @@ package com.example.androidphpmysql;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin;
     private TextView progressDialogLogin, registerText;
     private FirebaseAuth firebaseAuth;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialogLogin = (TextView) findViewById(R.id.progressDialogLogin);
         registerText = (TextView) findViewById(R.id.switchRegister);
         firebaseAuth = FirebaseAuth.getInstance();
+        sharedPreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         if(firebaseAuth.getCurrentUser() != null){
             finish();
@@ -78,10 +84,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialogLogin.setVisibility(View.INVISIBLE);
                 if (task.isSuccessful()) {
+                    String userId = firebaseAuth.getUid();
+                    editor.putString("uid", userId);
                     finish();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.putExtra("USER_EMAIL_ADDRESS", email);
                     startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });
