@@ -29,4 +29,18 @@ public class UserDetails {
     public void setQuadCoins(Integer quadCoins) {
         this.quadCoins = quadCoins;
     }
+
+    public void addQuadCoins (Integer amount){
+        quadCoins = quadCoins + amount;
+    }
+
+    public boolean subtractQuadCoins (Integer amount){
+        if (quadCoins < amount){
+            return false;
+        }
+        else{
+            quadCoins = quadCoins - amount;
+            return true;
+        }
+    }
 }

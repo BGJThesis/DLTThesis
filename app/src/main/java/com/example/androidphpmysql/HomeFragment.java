@@ -13,9 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.androidphpmysql.adapters.TransactionLog;
+import com.example.androidphpmysql.adapters.TransactionLogAdapter;
 import com.example.androidphpmysql.models.LogEntryModel;
-import com.example.androidphpmysql.models.TransactionModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -108,8 +107,10 @@ public class HomeFragment extends Fragment {
                     transactionList.add(logEntry);
                 }
 
-                TransactionLog adapter = new TransactionLog(getActivity(), transactionList);
-                listViewLogs.setAdapter(adapter);
+                if (getActivity() != null) {
+                    TransactionLogAdapter adapter = new TransactionLogAdapter(getActivity(), transactionList);
+                    listViewLogs.setAdapter(adapter);
+                }
             }
 
             @Override

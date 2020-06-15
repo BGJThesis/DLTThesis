@@ -31,6 +31,13 @@
             android:id="@+id/quadCoins"
             android:text="QUADCOINS"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGOUT"
+            android:id="@+id/logoutButton"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 
 </FrameLayout>
