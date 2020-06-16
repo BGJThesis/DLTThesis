@@ -1,49 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout_transaction"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    android:id="@+id/frameLayout_transaction"
-    >
+    android:background="#0D279A"
+    tools:context=".HomeFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Make a Transaction"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/userEmailAddress"
-            android:layout_gravity="center"/>
-
-        <EditText
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/quantityEditText"
-            android:hint="Enter Amount"
-            android:inputType="numberDecimal|numberSigned"
-            />
+            android:layout_height="405dp"
+            android:background="#5F933C">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/receiverEditText"
-            android:hint="Enter Receiver Email Address"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:orientation="vertical">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/saveInfoButton"
-            android:text="Save Information"
-            android:layout_gravity="center"
-            />
+                <TextView
+                    android:id="@+id/userEmailAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Make a Transaction"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
 
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp" />
+
+                <EditText
+                    android:id="@+id/quantityEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#FFFFFF"
+                    android:hint="Enter Amount"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:paddingLeft="10dp"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/receiverEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#FFFFFF"
+                    android:hint="Enter Receiver Email Address"
+                    android:paddingLeft="10dp"
+                    android:textColor="#000000" />
+
+                <Button
+                    android:id="@+id/saveInfoButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#F8F5F5"
+                    android:text="Save Information" />
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>

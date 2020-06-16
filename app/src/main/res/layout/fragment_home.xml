@@ -12,40 +12,49 @@
         android:id="@+id/tlTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Transaction Log"
         android:layout_gravity="center_horizontal"
+        android:background="#0D279A"
+        android:text="TRANSACTION LOG"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:background="#FFFFFF">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sender"
-            android:paddingLeft="16dp"/>
+            android:paddingLeft="16dp"
+            android:text="SENDER"
+            android:textColor="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="QuadCoins"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:text="QUADCOINS"
+            android:textColor="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Receiver"
             android:layout_alignParentRight="true"
-            android:paddingRight="16dp"/>
+            android:paddingRight="16dp"
+            android:text="RECEIVER"
+            android:textColor="#000000" />
 
     </RelativeLayout>
+
     <ListView
-        android:layout_below="@+id/tlTextView"
+        android:id="@+id/tlListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tlListView"/>
+        android:layout_below="@+id/tlTextView"
+        android:background="#5F933C"
+        android:dividerHeight="5dp" />
 
 </LinearLayout>

@@ -4,18 +4,20 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/senderTextView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/senderTextView"
+        android:paddingLeft="16dp"
         android:text="user1"
-        android:paddingLeft="16dp"/>
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/transferAmountTextView"
         android:text="quantity"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,6 +26,7 @@
         android:text="user2"
         android:layout_alignParentRight="true"
         android:paddingRight="16dp"
+        android:textColor="#FFFFFF"
         />
 
 </RelativeLayout>

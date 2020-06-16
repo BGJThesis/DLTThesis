@@ -3,41 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    >
+    android:background="#0D279A"
+    tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:id="@+id/uid"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:layout_marginHorizontal="25dp"
+        android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#5F933C">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/userName"
-            android:text="NAME"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/quadCoins"
-            android:text="QUADCOINS"/>
+                <ImageView
+                    android:layout_width="163dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/user_blue" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOGOUT"
-            android:id="@+id/logoutButton"
-            android:layout_gravity="center"/>
-
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:text="NAME"
+                    android:textColor="#FFFFFF"
+                    android:textSize="36sp"
+                    tools:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textMultiLine"
+        android:text="You have"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="330dp"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/quadCoins"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textMultiLine"
+        android:text="QUADCOINS"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="360dp"
+        android:textSize="35sp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/logoutButtonP"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="500dp"
+        android:text="LOGOUT" />
 
 </FrameLayout>
