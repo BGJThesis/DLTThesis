@@ -17,7 +17,6 @@
         android:text="USER LOGIN"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -36,7 +35,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp"
             android:text="Email Address"
-            android:textColor="#FFFFFF" />
+            />
 
         <EditText
             android:id="@+id/editEmailLogin"
@@ -55,7 +54,6 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:paddingTop="16dp"
-            android:textColor="#FFFFFF"
             android:text="Password" />
 
         <EditText
